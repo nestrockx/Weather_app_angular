@@ -1,0 +1,32 @@
+<div class="container-fluid" id="top_container">
+  <h1>Pogoda</h1>
+</div>
+
+<div class="container-fluid" id="form_container">
+  <form [formGroup]="cityForm">
+    <p>
+        <mat-form-field [style.fontSize.px]=20>
+          <input matInput placeholder="Miasto/Wieś" formControlName="city">
+          <mat-error *ngIf="city?.invalid">
+            Podaj conajmniej 3 znaki
+          </mat-error>
+        </mat-form-field>
+    </p>
+    <button mat-raised-button [disabled]="cityForm.invalid" color="primary" (click)="submit()">Sprawdź pogodę</button>
+  </form>
+</div>
+ 
+
+
+<div class="container" id="weather_container">
+  <h2>{{city_name}}</h2>
+  <h2>{{temperature}}</h2>
+  <h2>{{feel_like}}</h2>
+  <h2>{{cloudiness}}</h2>
+  <h2>{{humidity}}</h2>
+  <h2>{{pressure}}</h2>
+  <h2>{{rain}}</h2>
+  <img *ngIf="image_name.length" width="200px" height="200px" src={{image_name}} alt="weather_icon">
+</div>
+
+
